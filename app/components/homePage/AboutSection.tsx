@@ -5,7 +5,7 @@ function AboutSection() {
       className=" pr-[3.5rem] relative overflow-x-hidden min-h-[350px]"
     >
       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        WHO I AM?
+        WHO AM I?
       </p>
       <p className="text-gray-200 text-sm lg:text-lg ">
         My name is Yassin Samir. I am a professional and enthusiastic programmer

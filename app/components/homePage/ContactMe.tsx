@@ -8,7 +8,7 @@ function ContactMe() {
   return (
     <div id="contactMe">
       <p className="font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-        Contact with me
+        Contact Me
       </p>
       <div className="flex flex-col gap-5 lg:gap-9 mt-8 pl-2">
         <p className="text-sm md:text-xl flex items-center gap-3">
