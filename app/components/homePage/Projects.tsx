@@ -53,10 +53,18 @@ IGCSE past papers. The backend used was google cloud.`,
     code: "https://github.com/Yassin-Samir/full-eccomerceApp",
     tools: ["React", "Firebase", "Next.js", "vercel", "stripe"],
     description: ` A demo jewelry e-commerce app which used react and
-react-router-dom for front-end. It includes: demo stripe
-intergration , authentication , order history, cart history and
-responsive design. Technologies used : firebase for backend ,
-vercel for hosting.`,
+    react-router-dom for front-end. It includes: demo stripe
+    intergration , authentication , order history, cart history and
+    responsive design. Technologies used : firebase for backend ,
+    vercel for hosting.`,
+    role: "Front-end developer",
+  },
+  {
+    name: "Portfolio",
+    demo: "https://yassin-samir.vercel.app/",
+    code: "https://github.com/Yassin-Samir/portfolio",
+    tools: ["React", "Next.js", "vercel", "JavaScript", "css"],
+    description: `My portfolio website`,
     role: "Front-end developer",
   },
   {
@@ -70,29 +78,29 @@ vercel for hosting.`,
 ];
 function Projects() {
   return (
-    <div
-      className="relative z-[10] my-12 lg:my-24 
-    border-solid border-[#1a1443] border-t-[2px]"
-    id="projects"
-    >
-      <div
-        className="w-[80px] h-[80px] bg-violet-100 
+    <div className=" z-[10] my-12 lg:my-24 relative" id="projects">
+      <div className="">
+        <div
+          className="w-[80px] h-[80px] bg-violet-100 
       rounded-full absolute -top-[2.75rem] left-0 
       translate-x-1/2 filter blur-3xl opacity-30"
-      ></div>
-      <p className="absolute -top-[25px] left-0 bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-        PROJECTS
-      </p>
-      <div className="py-24 flex flex-col gap-6">
+        ></div>
+        <p className="absolute -top-[25px] left-0 bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
+          PROJECTS
+        </p>
+        <div className="w-full h-[2px] bg-[#1a1443]"></div>
+      </div>
+      <div
+        className="pt-24 grid 
+      md:grid-cols-[repeat(2,minmax(320px,1fr))] gap-6"
+      >
         {projects &&
           projects.map((Project, id) => (
-            <div
-              className="w-full mx-auto max-w-2xl sticky"
-              key={id + 1}
-              style={{ top: `calc(${id + 1} * 4rem)` }}
-            >
-              <ProjectCard project={Project} />
-            </div>
+            <>
+              <div className="w-full h-full mx-auto max-w-2xl" key={id + 1}>
+                <ProjectCard project={Project} />
+              </div>
+            </>
           ))}
       </div>
     </div>
@@ -100,7 +108,7 @@ function Projects() {
 }
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
+    <div className="h-full from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
       <div className="flex flex-row">
         <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
         <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
@@ -136,10 +144,9 @@ function ProjectCard({ project }: { project: Project }) {
             {project.tools.map((tag, i) => (
               <Fragment key={i}>
                 <span className="text-amber-300">{tag}</span>
-                {project.tools.length - 1 !== i && (
+                {project.tools.length - 1 !== i ? (
                   <span className="text-gray-400">{`', '`}</span>
-                )}
-                {project.tools.length - 1 === i && (
+                ) : (
                   <span className="text-gray-400">{`'`}</span>
                 )}
               </Fragment>
@@ -147,7 +154,7 @@ function ProjectCard({ project }: { project: Project }) {
             <span className="text-gray-400">{"],"}</span>
           </div>
           <div>
-            <span className="ml-4 lg:ml-8 mr-2 text-white">myRole:</span>
+            <span className="ml-4 lg:ml-8 mr-2 text-white">Role:</span>
             <span className="text-orange-400">{project.role}</span>
             <span className="text-gray-400">,</span>
           </div>
