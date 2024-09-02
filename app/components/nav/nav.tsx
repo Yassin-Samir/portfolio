@@ -9,7 +9,7 @@ function Nav() {
     >
       <nav className="size-full mx-auto py-5 flex items-center justify-between">
         <Link href={"/"}>
-          <h1 className="text-[#16f2b3]  text-3xl font-bold">Yassin hegazy</h1>
+          <h1 className="text-[#16f2b3]  text-3xl font-bold">Yassin Samir</h1>
         </Link>
         <ul className="flex max-w-[595px] max-sm:hidden  items-center text-white ">
           <li className="text-sm text-white  block px-4 py-2">
