@@ -28,7 +28,7 @@ is also an admin panel version but this version is private`,
   {
     name: "Insta-Tutor",
     demo: "https://www.insta-tutor.org/",
-    code: "Private",
+    code: "https://github.com/Insta-tutor/Insta-Tutor",
     tools: [
       "React",
       "Firebase",
