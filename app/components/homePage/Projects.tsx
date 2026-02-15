@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 
 interface Project {
   name: string;
@@ -28,7 +27,7 @@ is also an admin panel version but this version is private`,
   {
     name: "Insta-Tutor",
     demo: "https://www.insta-tutor.org/",
-    code: "https://github.com/Insta-tutor/Insta-Tutor",
+    code: "https://github.com/insta-tutor/insta-tutor",
     tools: [
       "React",
       "Firebase",
@@ -76,9 +75,10 @@ IGCSE past papers. The backend used was google cloud.`,
     role: "Front-end developer",
   },
 ];
+
 function Projects() {
   return (
-    <div className=" z-[10] my-12 lg:my-24 relative" id="projects">
+    <div className="z-[10] my-12 lg:my-24 relative" id="projects">
       <div className="">
         <div
           className="w-[80px] h-[80px] bg-violet-100 
@@ -95,12 +95,10 @@ function Projects() {
       md:grid-cols-[repeat(2,minmax(320px,1fr))] gap-6"
       >
         {projects &&
-          projects.map((Project, id) => (
-            <>
-              <div className="w-full h-full mx-auto max-w-2xl" key={id + 1}>
-                <ProjectCard project={Project} />
-              </div>
-            </>
+          projects.map((project, id) => (
+            <div className="w-full h-full mx-auto max-w-2xl" key={id + 1}>
+              <ProjectCard project={project} />
+            </div>
           ))}
       </div>
     </div>
@@ -108,91 +106,61 @@ function Projects() {
 }
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="h-full from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full">
-      <div className="flex flex-row">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-      </div>
-      <div className="px-4 lg:px-8 py-3 lg:py-5 relative">
-        <div className="flex flex-row space-x-1 lg:space-x-2 absolute top-1/2 -translate-y-1/2">
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-red-400"></div>
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-orange-400"></div>
-          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-green-200"></div>
+    <div className="group h-full relative bg-[#0d1224]/60 border border-[#1b2c68a0] rounded-2xl overflow-hidden hover:border-violet-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-violet-500/10 flex flex-col">
+      {/* Card Content */}
+      <div className="p-6 flex flex-col flex-1">
+        {/* Project Name & Role */}
+        <div className="mb-4">
+          <h3 className="text-xl font-bold text-white mb-1 group-hover:text-pink-500 transition-colors duration-300">
+            {project.name}
+          </h3>
+          <p className="text-sm text-[#16f2b3] font-medium">{project.role}</p>
         </div>
-        <p className="text-center ml-3 text-[#16f2b3] text-base lg:text-xl">
-          {project.name}
-        </p>
-      </div>
-      <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-        <code className="font-mono text-xs md:text-sm lg:text-base">
-          <div className="blink">
-            <span className="mr-2 text-pink-500">const</span>
-            <span className="mr-2 text-white">project</span>
-            <span className="mr-2 text-pink-500">=</span>
-            <span className="text-gray-400">{"{"}</span>
-          </div>
-          <div>
-            <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-            <span className="text-gray-400">{`'`}</span>
-            <span className="text-amber-300">{project.name}</span>
-            <span className="text-gray-400">{`',`}</span>
-          </div>
 
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className=" text-white">tools:</span>
-            <span className="text-gray-400">{` ['`}</span>
-            {project.tools.map((tag, i) => (
-              <Fragment key={i}>
-                <span className="text-amber-300">{tag}</span>
-                {project.tools.length - 1 !== i ? (
-                  <span className="text-gray-400">{`', '`}</span>
-                ) : (
-                  <span className="text-gray-400">{`'`}</span>
-                )}
-              </Fragment>
-            ))}
-            <span className="text-gray-400">{"],"}</span>
-          </div>
-          <div>
-            <span className="ml-4 lg:ml-8 mr-2 text-white">Role:</span>
-            <span className="text-orange-400">{project.role}</span>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className="text-white">Description:</span>
-            <span className="text-cyan-400">{" " + project.description}</span>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className="text-white">Code:</span>{" "}
-            {project.code.toLowerCase() === "private" ? (
-              <span className="text-[#5f85ff]">{project.code}</span>
-            ) : (
-              <Link
-                href={project.code}
-                target="_blank"
-                className="hover:underline text-[#5f85ff]"
+        {/* Description */}
+        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+          {project.description}
+        </p>
+
+        {/* Technologies */}
+        <div className="mb-6">
+          <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-2">
+            Built With
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {project.tools.map((tool, i) => (
+              <span
+                key={i}
+                className="px-2.5 py-1 text-xs text-white/80 bg-white/5 border border-white/10 rounded-lg"
               >
-                {project.code}
-              </Link>
-            )}
-            <span className="text-gray-400">,</span>
+                {tool}
+              </span>
+            ))}
           </div>
-          <div className="ml-4 lg:ml-8 mr-2">
-            <span className="text-white">demo:</span>{" "}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
+          {project.code.toLowerCase() === "private" ? (
+            <span className="text-gray-500 text-sm">Source Code Private</span>
+          ) : (
             <Link
-              href={project.demo}
+              href={project.code}
               target="_blank"
-              className="hover:underline text-[#5f85ff]"
+              className="text-white hover:text-pink-500 transition-colors duration-300 text-sm font-medium"
             >
-              {project.demo}
+              View Source Code →
             </Link>
-            <span className="text-gray-400">,</span>
-          </div>
-          <div>
-            <span className="text-gray-400">{`};`}</span>
-          </div>
-        </code>
+          )}
+
+          <Link
+            href={project.demo}
+            target="_blank"
+            className="text-white hover:text-violet-400 transition-colors duration-300 text-sm font-medium ml-auto"
+          >
+            Live Demo →
+          </Link>
+        </div>
       </div>
     </div>
   );
