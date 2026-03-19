@@ -44,7 +44,7 @@ system , authentication ,responsive design , seo , role based
 accessed data , push notifications , live chat system, online
 presence , email notifications using sendGrid and pdf ocr for
 IGCSE past papers. The backend used was google cloud.`,
-    role: "Fullstack web developer",
+    role: "Full-stack web developer",
   },
   {
     name: "Jewellery Store",
@@ -73,6 +73,22 @@ IGCSE past papers. The backend used was google cloud.`,
     tools: ["React", "Firebase", "vercel", "JavaScript", "css"],
     description: `Chat room`,
     role: "Front-end developer",
+  },
+  {
+    name: "Egyptian Olympiad Portal",
+    demo: "https://egyptmathematicalfoundation.org/",
+    code: "Private",
+    tools: [
+      "Next.js 15",
+      "Firebase",
+      "LiveKit",
+      "TypeScript",
+      "WebRTC",
+      "Vercel",
+      "React",
+    ],
+    description: `A comprehensive platform for the Egyptian Mathematical Olympiad that orchestrates nationwide competitions. It features a sophisticated remote proctoring system with real-time video and screen sharing powered by LiveKit, a multi-role authentication system via Firebase, and a dynamic admin dashboard for real-time monitoring and incident logging. The architecture leverages Next.js 15's server components for blazing-fast performance, handling everything from registration and user verification to live event management.`,
+    role: "Full-stack Developer",
   },
 ];
 
